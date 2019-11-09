@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System;
 using System.Net;
@@ -46,7 +47,7 @@ namespace Deloitte.TaskBoard.Api
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info { Title = "Deloitte Task Board API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Deloitte Task Board API", Version = "v1" });
             });
         }
 

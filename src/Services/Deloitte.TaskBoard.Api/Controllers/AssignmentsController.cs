@@ -52,7 +52,7 @@ namespace Deloitte.TaskBoard.Api.Controllers
             var newAssignment = _mapper.Map<Assignment>(assignment);
             var result = await _repository.Create(newAssignment);
 
-            return CreatedAtRoute("DefaultApi", new { id = result.Id }, _mapper.Map<AssignmentDto>(result));
+            return CreatedAtAction(nameof(FindById), new { id = result.Id }, _mapper.Map<AssignmentDto>(result));
         }
 
         [HttpPatch("{id}")]
@@ -67,7 +67,7 @@ namespace Deloitte.TaskBoard.Api.Controllers
 
             MapUpdatedAssignment(assignment, existingAssignment);
 
-            var result = _repository.Update(existingAssignment);
+            var result = await _repository.Update(existingAssignment);
             var response = _mapper.Map<AssignmentDto>(result);
 
             return Ok(response);

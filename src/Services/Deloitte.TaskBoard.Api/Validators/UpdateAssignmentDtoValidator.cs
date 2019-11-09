@@ -8,10 +8,12 @@ namespace Deloitte.TaskBoard.Api.Validators
         public UpdateAssignmentDtoValidator()
         {
             RuleFor(x => x.Title)
-                .NotEmpty();
+                .NotEmpty()
+                .When(x => x.Title != null);
 
             RuleFor(x => x.Description)
-                .NotEmpty();
+                .NotEmpty()
+                .When(x => x.Description != null);
 
             RuleFor(x => x.Status)
                 .NotEmpty()
@@ -26,7 +28,8 @@ namespace Deloitte.TaskBoard.Api.Validators
                 .WithMessage($"Only the following values are valid for Priority: {string.Join(", ", ValidPriorityList.Values)}");
 
             RuleFor(x => x.Requester)
-                .NotEmpty();
+                .NotEmpty()
+                .When(x => x.Requester != null);
 
             RuleFor(x => x.Order)
                 .GreaterThan(0)
