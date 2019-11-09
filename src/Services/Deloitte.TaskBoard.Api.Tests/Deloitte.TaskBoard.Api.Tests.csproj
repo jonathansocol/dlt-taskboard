@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Validators\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Deloitte.TaskBoard.Api\Deloitte.TaskBoard.Api.csproj" />
   </ItemGroup>
 
