@@ -10,7 +10,11 @@ namespace Deloitte.TaskBoard.Api.MapperProfiles
         {
             CreateMap<AssignmentDto, Assignment>().ReverseMap();
             CreateMap<CreateAssignmentDto, Assignment>().ReverseMap();
-            CreateMap<UpdateAssignmentDto, Assignment>().ReverseMap();
+
+            CreateMap<UpdateAssignmentDto, Assignment>()
+                .ForMember(dest => dest.Order, opt => opt.Condition(source => source.Order > 0))
+                .ForAllOtherMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
         }
     }
 }

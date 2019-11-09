@@ -65,7 +65,7 @@ namespace Deloitte.TaskBoard.Api.Controllers
                 return NotFound();
             }
 
-            MapUpdatedAssignment(assignment, existingAssignment);
+            _mapper.Map(assignment, existingAssignment);
 
             var result = await _repository.Update(existingAssignment);
             var response = _mapper.Map<AssignmentDto>(result);
@@ -84,16 +84,6 @@ namespace Deloitte.TaskBoard.Api.Controllers
             }
 
             return Ok();
-        }
-
-        private void MapUpdatedAssignment(UpdateAssignmentDto updatedAssignment, Assignment existingAssignment)
-        {
-            existingAssignment.Title = updatedAssignment.Title ?? existingAssignment.Title;
-            existingAssignment.Description = updatedAssignment.Description ?? existingAssignment.Description;
-            existingAssignment.Status = updatedAssignment.Status ?? existingAssignment.Status;
-            existingAssignment.Priority = updatedAssignment.Priority ?? existingAssignment.Priority;
-            existingAssignment.Requester = updatedAssignment.Requester ?? existingAssignment.Requester;
-            existingAssignment.Order = updatedAssignment.Order ?? existingAssignment.Order;
         }
     }
 }
