@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deloitte.TaskBoard.Api.Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deloitte.TaskBoard.Api.Models", "Services\Deloitte.TaskBoard.Api.Models\Deloitte.TaskBoard.Api.Models.csproj", "{317B78B6-4320-4437-A715-5477F0D449AE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{A126D850-390F-45A3-8D0C-98023B061F83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

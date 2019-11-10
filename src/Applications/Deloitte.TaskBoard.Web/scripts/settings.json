@@ -1,0 +1,4 @@
+{
+    "baseUrl": "https://taskboard-prd-api.azurewebsites.net",
+    "controller": "Assignments"    
+}

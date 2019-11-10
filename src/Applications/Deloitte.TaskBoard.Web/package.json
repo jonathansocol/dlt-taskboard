@@ -1,0 +1,27 @@
+{
+  "name": "deloitte.taskboard.web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.0",
+    "http-serve": "^1.0.1"
+  },
+  "scripts": {
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234\""
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathansocol/dlt-taskboard.git"
+  },
+  "author": "Jonathan Socol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathansocol/dlt-taskboard/issues"
+  },
+  "homepage": "https://github.com/jonathansocol/dlt-taskboard#readme"
+}
