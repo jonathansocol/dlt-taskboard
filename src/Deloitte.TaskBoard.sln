@@ -19,6 +19,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deloitte.TaskBoard.Api.Mode
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Applications", "Applications", "{A126D850-390F-45A3-8D0C-98023B061F83}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Deloitte.TaskBoard.Web(1)", "Applications\Deloitte.TaskBoard.Web\", "{5D74FDA4-1E47-4030-ADDD-4070A019AF54}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_58298"
+		Debug.AspNetCompiler.PhysicalPath = "Applications\Deloitte.TaskBoard.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58298\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_58298"
+		Release.AspNetCompiler.PhysicalPath = "Applications\Deloitte.TaskBoard.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_58298\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "58298"
+		SlnRelativePath = "Applications\Deloitte.TaskBoard.Web\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +66,10 @@ Global
 		{317B78B6-4320-4437-A715-5477F0D449AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{317B78B6-4320-4437-A715-5477F0D449AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{317B78B6-4320-4437-A715-5477F0D449AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D74FDA4-1E47-4030-ADDD-4070A019AF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D74FDA4-1E47-4030-ADDD-4070A019AF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D74FDA4-1E47-4030-ADDD-4070A019AF54}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D74FDA4-1E47-4030-ADDD-4070A019AF54}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +81,7 @@ Global
 		{4B142442-97BD-4F6A-9E0F-8C5D91D4367D} = {BC61FF44-60EB-4DF5-B4F3-78E2AB98D56F}
 		{022C6C62-E4DE-48AC-A7E9-B7B9DDEF33C4} = {4B142442-97BD-4F6A-9E0F-8C5D91D4367D}
 		{317B78B6-4320-4437-A715-5477F0D449AE} = {BC61FF44-60EB-4DF5-B4F3-78E2AB98D56F}
+		{5D74FDA4-1E47-4030-ADDD-4070A019AF54} = {A126D850-390F-45A3-8D0C-98023B061F83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E08BD872-8594-49B2-93A1-8EA1FA9DB458}
