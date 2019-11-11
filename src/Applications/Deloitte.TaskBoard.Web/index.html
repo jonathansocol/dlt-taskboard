@@ -1,0 +1,154 @@
+<html>
+
+<head>
+  <title>Deloitte Task Board</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="content/main.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="scripts/main.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-light">
+    <a class="navbar-brand" href="#">
+      <img src="/content/img/logo.png" height="30" class="d-inline-block align-top" alt="">
+      Task Board
+    </a>
+    <button type="button" id="btn-addtask" class="btn btn-primary" data-toggle="modal" data-target="#modal-editor">
+      + Add Task
+    </button>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm col-tasks">
+        <div class="col-header">To Do</div>
+        <ul id="todo-column" class="sortable" data-status="To Do"></ul>
+      </div>
+      <div class="col-sm col-tasks">
+        <div class="col-header">In Progress</div>
+        <ul id="inprogress-column" class="sortable" data-status="In Progress"></ul>
+      </div>
+      <div class="col-sm col-tasks">
+        <div class="col-header">Done</div>
+        <ul id="done-column" class="sortable" data-status="Done"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- New task modal -->
+  <div class="modal fade" id="modal-editor" tabindex="-1" role="dialog" aria-labelledby="new-modal-title"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="new-modal-title">Add Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="frm-addtask">
+            <div class="form-group">
+              <label for="txt-title">Title</label>
+              <input name="title" type="text" class="form-control" id="txt-title" placeholder="Give the task a title"
+                required="true">
+            </div>
+            <div class="form-group">
+              <label for="txt-description">Description</label>
+              <textarea name="description" class="form-control form-control-sm" id="txt-description" rows="3"
+                placeholder="What should be done?" required="true"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="txt-requester">Requester</label>
+              <input type="text" name="requester" class="form-control" id="txt-requester"
+                placeholder="Who requested this task?" required="true">
+            </div>
+            <div class="form-group">
+              <label for="ddl-priority">Priority</label>
+              <select name="priority" class="form-control" id="ddl-priority" required="true">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="btn-savetask" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details/Edit modal -->
+  <div class="modal fade" id="modal-details" tabindex="-1" role="dialog" aria-labelledby="details-modal-title"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <input type="hidden" id="txt-edit-id">
+          <h5 class="modal-title" id="details-modal-title">Add Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="frm-addtask">
+            <div class="form-group">
+              <label for="txt-title">Title</label>
+              <input name="title" type="text" class="form-control" id="txt-edit-title" placeholder="Give the task a title"
+                disabled="true">
+            </div>
+            <div class="form-group">
+              <label for="txt-description">Description</label>
+              <textarea name="description" class="form-control form-control-sm" id="txt-edit-description" rows="3"
+                placeholder="What should be done?" disabled="true"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="txt-requester">Requester</label>
+              <input type="text" name="requester" class="form-control" id="txt-edit-requester"
+                placeholder="Who requested this task?" disabled="true">
+            </div>
+            <div class="form-group">
+              <label for="ddl-priority">Priority</label>
+              <select name="priority" class="form-control" id="ddl-edit-priority" required="true">
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="btn-updatetask" type="button" class="btn btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card template -->
+  <div id="card-template" hidden>
+    <li class="ui-state-highlight task-card">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="#" class="btn-done">Mark as done</a>
+        </div>
+        <div class="col-sm-6">
+          <p class="task-priority float-right"></p>
+        </div>
+      </div>
+      <input type="hidden" class="task-id" value="">
+      <h4 class="task-requester"></h4>
+      <h5 class="task-title"></h5>
+      <p class="task-description"></p>
+      <input type="hidden" class="task-order" value="">
+      <a href="#" class="btn-edit">Edit</a>
+    </li>
+  </div>
+</body>
+
+</html>
